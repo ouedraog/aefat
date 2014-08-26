@@ -1,0 +1,24 @@
+
+main .container {
+	border: none;
+	background: #ddd url(../img/egg_shell.jpg) repeat top left;
+	    margin-top: -0.5px;
+}
+    .navbar {
+ 
+        -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
+        -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
+        transition: background .5s ease-in-out,padding .5s ease-in-out;
+    }
+        .top-nav-collapse {
+        padding: 0;
+    }
+            .top-nav-hidden {
+  visibility: hidden !important;
+  margin-bottom: 200px;
+
+    }
+    nav.navbar-default{
+		background: #00c0ef;
+		color: white;
+}

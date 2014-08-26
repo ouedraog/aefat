@@ -1,0 +1,430 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-08-07 23:44+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: activities/templates/activities/last_notifications.html:12
+msgid "You have no unread notification"
+msgstr ""
+
+#: activities/templates/activities/last_notifications.html:14
+msgid "See all"
+msgstr ""
+
+#: activities/templates/activities/notifications.html:26
+msgid "You have no notification"
+msgstr ""
+
+#: articles/models.py:28 articles/templates/articles/article.html:14
+msgid "Article"
+msgstr ""
+
+#: articles/models.py:29 articles/templates/articles/article.html:13
+#: articles/templates/articles/articles.html:4
+#: articles/templates/articles/articles.html:16
+#: articles/templates/articles/drafts.html:10
+#: articles/templates/articles/edit.html:10
+#: articles/templates/articles/write.html:10
+#: search/templates/search/partial_articles_results.html:3
+#: search/templates/search/partial_results_menu.html:9 templates/base.html:56
+msgid "Articles"
+msgstr ""
+
+#: articles/models.py:80
+msgid "Tag"
+msgstr ""
+
+#: articles/models.py:81 articles/templates/articles/drafts.html:18
+msgid "Tags"
+msgstr ""
+
+#: articles/models.py:108
+msgid "Article Comment"
+msgstr ""
+
+#: articles/models.py:109
+msgid "Article Comments"
+msgstr ""
+
+#: articles/templates/articles/articles.html:13
+#: articles/templates/articles/write.html:11
+msgid "Write Article"
+msgstr ""
+
+#: articles/templates/articles/articles.html:15
+#: articles/templates/articles/drafts.html:11
+#: articles/templates/articles/edit.html:11
+msgid "Drafts"
+msgstr ""
+
+#: articles/templates/articles/articles.html:24
+msgid "There is no published article yet"
+msgstr ""
+
+#: articles/templates/articles/articles.html:24
+msgid "Be the first one to publish"
+msgstr ""
+
+#: articles/templates/articles/articles.html:29
+msgid "Popular Tags"
+msgstr ""
+
+#: articles/templates/articles/drafts.html:16
+msgid "Title"
+msgstr ""
+
+#: articles/templates/articles/drafts.html:17
+msgid "Content"
+msgstr ""
+
+#: articles/templates/articles/drafts.html:35
+msgid "No draft to display"
+msgstr ""
+
+#: articles/templates/articles/edit.html:12
+msgid "Edit"
+msgstr ""
+
+#: articles/templates/articles/edit.html:33
+#: articles/templates/articles/write.html:32
+msgid "Publish"
+msgstr ""
+
+#: articles/templates/articles/edit.html:34
+#: articles/templates/articles/write.html:33
+msgid "Save Draft"
+msgstr ""
+
+#: articles/templates/articles/edit.html:35
+#: articles/templates/articles/write.html:35
+#: feeds/templates/feeds/feeds.html:29
+#: questions/templates/questions/ask.html:31
+msgid "Cancel"
+msgstr ""
+
+#: articles/templates/articles/partial_article_comments.html:3
+msgid "Press Ctrl + Enter to post"
+msgstr ""
+
+#: articles/templates/articles/partial_article_comments.html:4
+msgid "Comments"
+msgstr ""
+
+#: articles/templates/articles/partial_article_comments.html:13
+#: feeds/templates/feeds/partial_feed.html:35
+msgid "Write a comment..."
+msgstr ""
+
+#: articles/templates/articles/partial_article_comments.html:21
+msgid "Be the first one to comment!"
+msgstr ""
+
+#: articles/templates/articles/write.html:34
+msgid "Preview"
+msgstr ""
+
+#: auth/templates/auth/signup.html:11
+msgid "Sign up for Bootcamp"
+msgstr ""
+
+#: auth/templates/auth/signup.html:26
+msgid "Create an account"
+msgstr ""
+
+#: core/templates/core/cover.html:19
+msgid "Log in"
+msgstr ""
+
+#: core/templates/core/cover.html:24 core/templates/core/network.html:27
+msgid "Username"
+msgstr ""
+
+#: core/templates/core/cover.html:31
+#: core/templates/core/partial_settings_menu.html:5
+msgid "Password"
+msgstr ""
+
+#: core/templates/core/network.html:4 templates/base.html:58
+msgid "Network"
+msgstr ""
+
+#: core/templates/core/network.html:25
+msgid "Job Title"
+msgstr ""
+
+#: core/templates/core/network.html:28
+msgid "Email"
+msgstr ""
+
+#: core/templates/core/network.html:30
+msgid "Location"
+msgstr ""
+
+#: core/templates/core/network.html:33
+msgid "Url"
+msgstr ""
+
+#: core/templates/core/partial_settings_menu.html:3
+msgid "Profile"
+msgstr ""
+
+#: core/templates/core/partial_settings_menu.html:4
+msgid "Picture"
+msgstr ""
+
+#: core/templates/core/password.html:4 core/templates/core/password.html:8
+#: core/templates/core/picture.html:4 core/templates/core/picture.html:14
+#: core/templates/core/settings.html:10 templates/base.html:78
+msgid "Account Settings"
+msgstr ""
+
+#: core/templates/core/password.html:23
+msgid "Change Password"
+msgstr ""
+
+#: core/templates/core/password.html:43 core/templates/core/settings.html:57
+msgid "Save"
+msgstr ""
+
+#: core/templates/core/picture.html:29
+msgid "Change Picture"
+msgstr ""
+
+#: core/templates/core/picture.html:34
+msgid "Upload new picture"
+msgstr ""
+
+#: core/templates/core/picture.html:45
+msgid "Crop Picture"
+msgstr ""
+
+#: core/templates/core/picture.html:49
+msgid "Crop the profile picture and then click on the"
+msgstr ""
+
+#: core/templates/core/picture.html:49
+msgid "Save Picture"
+msgstr ""
+
+#: core/templates/core/picture.html:49
+msgid "button"
+msgstr ""
+
+#: core/templates/core/picture.html:64
+msgid "Close"
+msgstr ""
+
+#: core/templates/core/picture.html:65
+msgid "Save changes"
+msgstr ""
+
+#: core/templates/core/profile.html:37
+msgid "Last Feeds by"
+msgstr ""
+
+#: core/templates/core/settings.html:25
+msgid "Edit Profile"
+msgstr ""
+
+#: feeds/models.py:20 feeds/templates/feeds/feed.html:6
+#: feeds/templates/feeds/feeds.html:15
+#: search/templates/search/partial_feed_results.html:4
+#: search/templates/search/partial_results_menu.html:5 templates/base.html:55
+msgid "Feed"
+msgstr ""
+
+#: feeds/models.py:21
+msgid "Feeds"
+msgstr ""
+
+#: feeds/templates/feeds/feeds.html:12
+msgid "Press Ctrl + P to compose"
+msgstr ""
+
+#: feeds/templates/feeds/feeds.html:13
+msgid "Compose"
+msgstr ""
+
+#: feeds/templates/feeds/feeds.html:18
+msgid "Compose a new post"
+msgstr ""
+
+#: feeds/templates/feeds/feeds.html:27
+msgid "Post"
+msgstr ""
+
+#: feeds/templates/feeds/feeds.html:35
+msgid "new posts"
+msgstr ""
+
+#: feeds/templates/feeds/partial_feed.html:8
+msgid "Click to remove this feed"
+msgstr ""
+
+#: feeds/templates/feeds/partial_feed.html:16
+msgid "Unlike"
+msgstr ""
+
+#: feeds/templates/feeds/partial_feed.html:22
+msgid "Like"
+msgstr ""
+
+#: feeds/templates/feeds/partial_feed.html:27
+msgid "Comment"
+msgstr ""
+
+#: feeds/templates/feeds/partial_feed_comments.html:7
+msgid "Click to remove this comment"
+msgstr ""
+
+#: feeds/templates/feeds/partial_feed_comments.html:21
+msgid "Be the first one to comment"
+msgstr ""
+
+#: messages/models.py:16
+msgid "Message"
+msgstr ""
+
+#: messages/models.py:17
+msgid "Messages"
+msgstr ""
+
+#: messages/templates/messages/inbox.html:4
+#: messages/templates/messages/inbox.html:6
+msgid "Inbox"
+msgstr ""
+
+#: messages/templates/messages/new.html:4
+#: messages/templates/messages/new.html:6
+msgid "New message"
+msgstr ""
+
+#: messages/templates/messages/includes/partial_conversations.html:22
+msgid "Start a conversation"
+msgstr ""
+
+#: questions/templates/questions/ask.html:6
+#: questions/templates/questions/question.html:13
+#: questions/templates/questions/questions.html:16
+#: search/templates/search/partial_questions_results.html:4
+#: search/templates/search/partial_results_menu.html:13
+msgid "Questions"
+msgstr ""
+
+#: questions/templates/questions/ask.html:7
+#: questions/templates/questions/questions.html:14
+msgid "Ask Question"
+msgstr ""
+
+#: questions/templates/questions/ask.html:30
+msgid "Post Your Question"
+msgstr ""
+
+#: questions/templates/questions/partial_answer.html:7
+msgid "Click to up vote; click again to toggle"
+msgstr ""
+
+#: questions/templates/questions/partial_answer.html:9
+msgid "Click to down vote; click again to toggle"
+msgstr ""
+
+#: questions/templates/questions/partial_answer.html:11
+msgid "Click to unaccept the answer"
+msgstr ""
+
+#: questions/templates/questions/partial_answer.html:15
+msgid "Click to accept the answer"
+msgstr ""
+
+#: questions/templates/questions/partial_answer.html:22
+msgid "answered"
+msgstr ""
+
+#: questions/templates/questions/question.html:14
+msgid "Question"
+msgstr ""
+
+#: questions/templates/questions/question.html:59
+msgid "Post Your Answer"
+msgstr ""
+
+#: questions/templates/questions/questions.html:20
+msgid "Unanswered"
+msgstr ""
+
+#: questions/templates/questions/questions.html:21
+msgid "Answered"
+msgstr ""
+
+#: questions/templates/questions/questions.html:22
+msgid "All Questions"
+msgstr ""
+
+#: questions/templates/questions/questions.html:27
+msgid "No question to display"
+msgstr ""
+
+#: search/templates/search/partial_articles_results.html:24
+msgid "No article found"
+msgstr ""
+
+#: search/templates/search/partial_feed_results.html:23
+msgid "No feed found"
+msgstr ""
+
+#: search/templates/search/partial_questions_results.html:22
+msgid "No question found"
+msgstr ""
+
+#: search/templates/search/partial_results_menu.html:17
+#: search/templates/search/partial_users_results.html:3
+msgid "Users"
+msgstr ""
+
+#: search/templates/search/partial_users_results.html:19
+msgid "No user found"
+msgstr ""
+
+#: search/templates/search/results.html:17
+#: search/templates/search/search.html:22
+msgid "Search"
+msgstr ""
+
+#: search/templates/search/results.html:23
+#: search/templates/search/search.html:19
+msgid "Search Feed, Articles, Questions and Users"
+msgstr ""
+
+#: templates/base.html:49
+msgid "About us"
+msgstr ""
+
+#: templates/base.html:50
+msgid "Our activities"
+msgstr ""
+
+#: templates/base.html:52
+msgid "Contact us"
+msgstr ""
+
+#: templates/base.html:57
+msgid "Q&A"
+msgstr ""
+
+#: templates/base.html:80
+msgid "Log out"
+msgstr ""

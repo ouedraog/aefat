@@ -1,0 +1,50 @@
+ {% extends 'base.html' %} {% load i18n %} 
+ {% block head %}
+ {{block.super}}
+ <link rel="stylesheet" type="text/css"
+	href="{{STATIC_URL}}css/aefat.css" />
+			<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/default.css" />
+		<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/component.css" />
+		<script src="{{STATIC_URL}}js/modernizr.custom.js"></script>
+ {% endblock %}
+ {% block body %}
+ {{block.super}}
+ 
+ <div id="cbp-fbscroller" class="cbp-fbscroller">
+				<nav>
+					<a href="#fbsection1" class="cbp-fbcurrent"></a>
+					<a href="#fbsection2"></a>
+					<a href="#fbsection3"></a>
+					<a href="#fbsection4"></a>
+					<a href="#fbsection5"></a>
+				</nav>
+				<section id="fbsection1">jjjjjjjj</section>
+				<section id="fbsection2">kkk</section>
+				<section id="fbsection3">llll</section>
+				<section id="fbsection4">mmmm</section>
+				<section id="fbsection5">nnns</section>
+</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="{{STATIC_URL}}js/jquery.easing.min.js"></script>
+		<!-- waypoints jQuery plugin by http://imakewebthings.com/ : http://imakewebthings.com/jquery-waypoints/ -->
+		<script src="{{STATIC_URL}}js/waypoints.min.js"></script>
+		<!-- jquery-smartresize by @louis_remi : https://github.com/louisremi/jquery-smartresize -->
+		<script src="{{STATIC_URL}}js/jquery.debouncedresize.js"></script>
+		<script src="{{STATIC_URL}}js/cbpFixedScrollLayout.min.js"></script>
+		<script>
+			$(function() {
+				cbpFixedScrollLayout.init();
+				
+				$(window).scroll(function() {
+				    if ($(".navbar").offset().top > 100) {
+				        $(".navbar-fixed-top").addClass("top-nav-collapse");
+				    } 
+				    else {
+				        $(".navbar-fixed-top").removeClass("top-nav-collapse");
+				    }
+				});
+			});
+		</script>
+{% endblock body %}
+
+
