@@ -168,3 +168,15 @@ main .container {
 	top: 11px;
 	left: -6px;
 }
+ nav.navbar-default{
+		background: url(../img/green.png);
+		color: white;
+}
+#aefat-logo{
+	width : 35px;
+	height:25px;
+	margin-top: 10px;
+}
+#aefat-name{
+	margin-top : 25px;
+}

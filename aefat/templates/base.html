@@ -19,13 +19,6 @@
 <script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
 <script src="{{ STATIC_URL }}js/bootcamp.js"></script>
 
-<link rel="stylesheet" type="text/css"
-	href="{{STATIC_URL}}css/normalize.css" />
-	<link rel="stylesheet" type="text/css"
-	href="{{STATIC_URL}}css/component1.css" />
-<link rel="stylesheet" type="text/css"
-	href="{{STATIC_URL}}css/demo1.css" />
-
 <link
 	href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300,300italic'
 	rel='stylesheet' type='text/css'/>
@@ -44,7 +37,10 @@
 							class="icon-bar"></span> <span class="icon-bar"></span> <span
 							class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="{% url 'home' %}">AEFAT</a>
+					<a  href="{% url 'home' %}">
+					<img src="{{STATIC_URL}}img/logo.png" id="aefat-logo">
+					<span id="aefat-name">AEFAT</span>
+					</a>
 				</div>
 				<div class="collapse navbar-collapse" id="menu">
 					<ul class="nav navbar-nav">
@@ -52,14 +48,8 @@
 							data-toggle="popover" data-placement="bottom"
 							title="Notifications"> <span class="glyphicon glyphicon-bell"></span>
 						</a></li>
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown">Aefat<b class="caret"></b></a>
-							<ul class="dropdown-menu">
-								<li class="intro"><a href="{% url 'aefat' %}">{% trans 'About us' %}</a></li>
-								<li class="about"><a href="{% url 'settings' %}">{% trans 'Our activities' %}</a></li>
-								<li class="divider"></li>
-								<li><a href="{% url 'logout' %}">{% trans 'Contact us '%}</a></li>
-							</ul></li>
+
+						<li><a href="{% url 'aefat' %}">L' AEFAT</a></li>
 						<li><a href="{% url 'feeds' %}">{% trans 'Feeds' %}</a></li>
 						<li><a href="{% url 'articles' %}">{% trans 'Articles' %}</a></li>
 						<li><a href="{% url 'questions' %}">{% trans 'Q&A' %}</a></li>
@@ -98,26 +88,9 @@
 	<main>
 	<div class="container">
 	{% block main %} {% endblock main %}
-		<!-- Start Nav Structure -->
-		<button class="cn-button" id="cn-button">+</button>
-		<div class="cn-wrapper" id="cn-wrapper">
-			<ul>
-				<li><a href="#"><span class="icon-picture"></span></a></li>
-				<li><a href="#"><span class="icon-headphones"></span></a></li>
-				<li><a href="#"><span class="icon-home"></span></a></li>
-				<li><a href="#"><span class="icon-facetime-video"></span></a></li>
-				<li><a href="#"><span class="icon-envelope-alt"></span></a></li>
-			</ul>
-		</div>
-		<div id="cn-overlay" class="cn-overlay"></div>
-		<!-- End Nav Structure -->
-	
-	</div>
+		
 	</main>
 	{% endblock body %}
-	<script src="{{ STATIC_URL }}js/ga.js"></script>
-		<script src="{{STATIC_URL}}js/polyfills.js"></script>
-	<script src="{{STATIC_URL}}js/demo1.js"></script>
 	<script src="{{ STATIC_URL }}js/notifications.js"></script>
 	<script src="{{ STATIC_URL }}js/check_messages.js"></script>
 </body>

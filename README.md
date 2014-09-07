@@ -44,3 +44,10 @@ Try Bootcamp now at [http://trybootcamp.vitorfs.com][2].
 [1]: https://www.djangoproject.com/
 [2]: http://trybootcamp.vitorfs.com/
 [3]: https://github.com/vitorfs/bootcamp/wiki/Installing-and-Running-Bootcamp
+
+#Install
+Pillow
+http://www.lfd.uci.edu/~gohlke/pythonlibs/#pillow
+
+MysqlDB
+http://www.lfd.uci.edu/~gohlke/pythonlibs/#mysql-python

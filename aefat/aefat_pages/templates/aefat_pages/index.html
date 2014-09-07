@@ -1,50 +1,130 @@
- {% extends 'base.html' %} {% load i18n %} 
+{% extends 'base.html' %} {% load i18n %} 
  {% block head %}
- {{block.super}}
- <link rel="stylesheet" type="text/css"
-	href="{{STATIC_URL}}css/aefat.css" />
-			<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/default.css" />
-		<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/component.css" />
-		<script src="{{STATIC_URL}}js/modernizr.custom.js"></script>
- {% endblock %}
+
+<link href="{{STATIC_URL}}css/fixed-positioning.css" rel="stylesheet" type="text/css" />
+<link href="{{STATIC_URL}}css/main.css" rel="stylesheet" type="text/css" />
+ 
+{% endblock %}
  {% block body %}
  {{block.super}}
- 
- <div id="cbp-fbscroller" class="cbp-fbscroller">
-				<nav>
-					<a href="#fbsection1" class="cbp-fbcurrent"></a>
-					<a href="#fbsection2"></a>
-					<a href="#fbsection3"></a>
-					<a href="#fbsection4"></a>
-					<a href="#fbsection5"></a>
-				</nav>
-				<section id="fbsection1">jjjjjjjj</section>
-				<section id="fbsection2">kkk</section>
-				<section id="fbsection3">llll</section>
-				<section id="fbsection4">mmmm</section>
-				<section id="fbsection5">nnns</section>
-</div>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-		<script src="{{STATIC_URL}}js/jquery.easing.min.js"></script>
-		<!-- waypoints jQuery plugin by http://imakewebthings.com/ : http://imakewebthings.com/jquery-waypoints/ -->
-		<script src="{{STATIC_URL}}js/waypoints.min.js"></script>
-		<!-- jquery-smartresize by @louis_remi : https://github.com/louisremi/jquery-smartresize -->
-		<script src="{{STATIC_URL}}js/jquery.debouncedresize.js"></script>
-		<script src="{{STATIC_URL}}js/cbpFixedScrollLayout.min.js"></script>
-		<script>
-			$(function() {
-				cbpFixedScrollLayout.init();
-				
-				$(window).scroll(function() {
-				    if ($(".navbar").offset().top > 100) {
-				        $(".navbar-fixed-top").addClass("top-nav-collapse");
-				    } 
-				    else {
-				        $(".navbar-fixed-top").removeClass("top-nav-collapse");
-				    }
-				});
-			});
-		</script>
+
+	<div id="bg1" data-0="background-position:0px 0px;"
+		data-end="background-position:-500px -10000px;"></div>
+	<div id="bg2" data-0="background-position:0px 0px;"
+		data-end="background-position:-500px -8000px;"></div>
+	<div id="bg3" data-0="background-position:0px 0px;"
+		data-end="background-position:-500px -6000px;"></div>
+
+	<div id="progress" data-0="width:0%;background:hsl(200, 100%, 50%);"
+		data-end="width:100%;background:hsl(920, 100%, 50%);"></div>
+
+	<div id="home"
+		data-0="opacity:1;top:3%;transform:rotate(0deg);transform-origin:0 0;"
+		data-500="opacity:0;top:-10%;transform:rotate(-90deg);">
+        <div id="welcome">
+        <h1 style="color:#cc2424;">
+          Bienvenue sur le site de l'AEFAT
+        </h1>
+        <p style="color:#FF9900;">L' Association des Etudiants Toulousains du Faso</p>
+          <button type="button" class="btn btn-info btn-lg">Découvrez l' AEFAT</button>
+        </div>
+    </div>
+  <!-- <div class="aefat-features ui three column center aligned stackable divided grid">
+        <div class="column">
+          <div class="ui icon header">
+            <i class="circular thumbs up outline icon"></i>
+            Articles
+          </div>
+          <p>Découvrez nos articles sur divers sujets : les études, le logement, la vie à Toulouse, notre communoté</p>
+          <p><a class="ui teal right labeled icon button" href="#">Découvrir <i class="right long arrow icon"></i></a></p>
+        </div>
+        <div class="column">
+          <div class="ui icon header">
+            <i class="circular  chat outline icon"></i>
+            Posts et Chats
+          </div>
+          <p>Chattez avec nos membres et restez informés de nos activités</p>
+          <p><a class="ui teal right labeled icon button" href="#">Connexion <i class="right long arrow icon"></i></a></p>
+        </div>
+        <div class="column">
+          <div class="ui icon header">
+            <i class="circular lightbulb icon"></i>
+            Forum
+          </div>
+          <p>Cherchez vous des réponses sur l'AEFAT, ou voulez-vous vous informer sur la vie étudiante à Toulouse?</p>
+          <p><a class="ui teal right labeled icon button" href="#">Questions/Réponses <i class="right long arrow icon"></i></a></p>
+        </div>
+      </div>
+-->
+	<div id="about" data-500="transform:scale(0);"
+		data-1000="transform:scale(1) ;opacity:1;" data-1600=""
+		data-1700="transform:scale(0) ;opacity:0;" >
+
+  		<h2 class="aefat-head1">Qui sommes nous?</h2>
+		<p>L' AEFAT est l'association officielle des étudiants burkinabè de Toulouse</p>
+	</div>
+
+	<div id="activities" data-1700="top:100%; transform:scale(0);" data-2200="top:0%; transform:scale(1);"
+		data-3000="display:block; transform:scale(1);" data-3700="top:-100%;display:none; transform:scale(0);">
+		<h2>Nos activités</h2>
+		<p>Nous sommes une vraie communauté! Nous menons des activités d'intégration et culturelles visant à faire
+		connaître le Burkina Faso.</p>
+	</div>
+
+	<div id="team" data-0="display:none;"
+		data-3900="display:block;"
+		data-10000="top:0%;" data-12000="top:-100%;">
+		<div id="easing" data-3900="left:100%" data-4600="left:25%;">
+			<h2>Notre équipe</h2>
+			
+			<p>
+				la SG
+			</p>
+			<p data-5900="opacity:0;font-size:100%;"
+				data-6500="opacity:1;font-size:150%;">
+				le Trésorier</p>
+		</div>
+
+		<div class="drop" data-6500="left:15%;bottom:100%;"
+			data-9500="bottom:0%;">Présidente</div>
+		<div class="drop" data-6500="left:25%;bottom[quadratic]:100%;"
+			data-9500="bottom:0%;">Sécrétaire</div>
+		<div class="drop" data-6500="left:35%;bottom[cubic]:100%;"
+			data-9500="bottom:0%;">Trésorier</div>
+		<div class="drop" data-6500="left:45%;bottom[swing]:100%;"
+			data-9500="bottom:0%;">Attaché culturel</div>
+	</div>
+
+	<div id="contact"
+		data-10000="top[cubic]:100%;border-radius[cubic]:0em;background:rgb(0,50,100);border-width:0px;"
+		data-12000="top:10%;border-radius:2em;background:rgb(190,230,255);border-width:10px;">
+		<h2>Contact</h2>
+		<p>Nous sommes situés à Toulouse</p>
+		<p>
+		</p>
+	</div>
+
+	<div id="scrollbar" data-0="top:0%;margin-top:2px;"
+		data-end="top:100%;margin-top:-52px;"></div>
+	<script src="{{STATIC_URL}}js/skrollr.min.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		var s = skrollr.init({
+		edgeStrategy: 'set',
+		easing: {
+			WTF: Math.random,
+			inverted: function(p) {
+				return 1-p;
+			}
+		}
+	});
+	})
+	</script>
+
+
+	<!--[if lt IE 9]>
+	<script type="text/javascript" src="{{STATIC_URL}}js/skrollr.ie.min.js"></script>
+	<![endif]-->
 {% endblock body %}
 
 
