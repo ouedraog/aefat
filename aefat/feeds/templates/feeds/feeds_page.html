@@ -1,0 +1,9 @@
+{% load endless %}
+
+{% paginate feeds %}
+
+{% for feed in feeds %}
+      {% include 'feeds/partial_feed.html' with feed=feed %}
+{% endfor %}
+
+{% show_more %}

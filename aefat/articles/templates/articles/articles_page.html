@@ -1,0 +1,11 @@
+{% load endless %}
+
+{% paginate articles %}
+
+{% for article in articles %}
+          {% include 'articles/partial_article.html' with article=article %}
+        {% empty %}
+          <h4 class="no-data">Aucun article publié pour l'instant. <a href="{% url 'write' %}">Sois le premier à publier</a></h4>
+{% endfor %}
+
+{% show_more %}
