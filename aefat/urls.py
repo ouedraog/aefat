@@ -7,8 +7,9 @@ admin.autodiscover()
 urlpatterns = patterns('',
     url (r'^grappelli/', include('grappelli.urls')),  # grappelli URLS
     url(r'^admin/', include(admin.site.urls)),  # admin site
-    url(r'^$', 'aefat.core.views.home', name='home'),
-    url(r'^login', 'django.contrib.auth.views.login', {'template_name': 'core/cover.html'}, name='login'),
+    url(r'^$', 'aefat.aefat_pages.views.home', name='home'),
+    #url(r'^login', 'django.contrib.auth.views.login', {'template_name': 'auth/login.html'}, name='login'),
+     url(r'^login/$', 'aefat.auth.views.login', name='login'),
     url(r'^logout', 'django.contrib.auth.views.logout', {'next_page': '/'}, name='logout'),
     url(r'^signup/$', 'aefat.auth.views.signup', name='signup'),
     url(r'^settings/$', 'aefat.core.views.settings', name='settings'),

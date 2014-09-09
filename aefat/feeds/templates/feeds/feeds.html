@@ -35,9 +35,14 @@
     <a href="#"><span class="new-posts"></span> {% trans 'new posts' %}</a>
   </div>
   <ul class="stream">
-    {% for feed in feeds %}
-      {% include 'feeds/partial_feed.html' with feed=feed %}
-    {% endfor %}
+      	{% include page_template %}
+
+		{% block js %}
+		    
+		    <script src="http://code.jquery.com/jquery-latest.js"></script>
+		    <script src="{{ STATIC_URL }}endless_pagination/js/endless-pagination.js"></script>
+		    <script>$.endlessPaginate({paginateOnScroll: true});</script>
+		{% endblock %}
   </ul>
   <div class="load">
     <img src="{{ STATIC_URL }}img/loading.gif">

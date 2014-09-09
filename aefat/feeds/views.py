@@ -2,30 +2,45 @@ from django.contrib.auth.decorators import login_required
 from django.core.context_processors import csrf
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseForbidden
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, render_to_response
 from django.template.loader import render_to_string
 import json
 
 from aefat.activities.models import Activity, Notification
 from aefat.decorators import ajax_required
 from aefat.feeds.models import Feed
-
+from endless_pagination.decorators import page_template
+from django.template.context import RequestContext
 
 FEEDS_NUM_PAGES = 10
 
+
+@page_template('feeds/feeds_page.html')
 @login_required
-def feeds(request):
-    all_feeds = Feed.get_feeds()
-    paginator = Paginator(all_feeds, FEEDS_NUM_PAGES)
-    feeds = paginator.page(1)
-    from_feed = -1
-    if feeds:
-        from_feed = feeds[0].id
-    return render(request, 'feeds/feeds.html', {
-        'feeds': feeds,
-        'from_feed': from_feed,
-        'page': 1,
-        })
+def feeds(
+        request, template='feeds/feeds.html', extra_context=None):
+    context = {
+        'feeds': Feed.objects.filter(parent=None),
+    }
+    
+    if extra_context is not None:
+        context.update(extra_context)
+    return render_to_response(
+        template, context, context_instance=RequestContext(request))
+
+# @login_required
+# def feeds(request):
+#     all_feeds = Feed.get_feeds()
+#     paginator = Paginator(all_feeds, FEEDS_NUM_PAGES)
+#     feeds = paginator.page(1)
+#     from_feed = -1
+#     if feeds:
+#         from_feed = feeds[0].id
+#     return render(request, 'feeds/feeds.html', {
+#         'feeds': feeds,
+#         'from_feed': from_feed,
+#         'page': 1,
+#         })
 
 def feed(request, pk):
     feed = get_object_or_404(Feed, pk=pk)

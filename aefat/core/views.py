@@ -12,13 +12,6 @@ from aefat.feeds.models import Feed
 from aefat.feeds.views import FEEDS_NUM_PAGES
 from aefat.feeds.views import feeds
 
-
-def home(request):
-    if request.user.is_authenticated():
-        return feeds(request)
-    else:
-        return render(request, 'core/cover.html')
-
 @login_required
 def network(request):
     users = User.objects.filter(is_active=True).order_by('username')

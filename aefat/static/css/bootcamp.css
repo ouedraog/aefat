@@ -21,7 +21,7 @@ button, a{
 	 	z-index:10;
 }
 body#page-top{
-		background: #ddd url(../img/egg_shell.jpg) repeat top left;
+		background: url(../img/bg2.jpg) repeat top left;
 }
 header#header-wrapper {
 	font-family: 'Open Sans Condensed', 'Arial Narrow', serif;

@@ -75,11 +75,11 @@ $(function () {
       success: function (data) {
         if ($(".like", li).hasClass("unlike")) {
           $(".like", li).removeClass("unlike");
-          $(".like .text", li).text("Like");
+          $(".like .text", li).text("J'aime");
         }
         else {
           $(".like", li).addClass("unlike");
-          $(".like .text", li).text("Unlike");
+          $(".like .text", li).text("Je n'aime plus");
         }
         $(".like .like-count", li).text(data);
       }

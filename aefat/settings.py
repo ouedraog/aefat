@@ -2,6 +2,7 @@ from decouple import config
 import dj_database_url
 from unipath import Path
 from django.utils.translation import ugettext as _
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
 
 
 PROJECT_DIR = Path(__file__).parent
@@ -46,7 +47,9 @@ INSTALLED_APPS = (
     'aefat.messages',
     'aefat.questions',
     'aefat.search',
-    'aefat.aefat_pages'
+    'aefat.aefat_pages',
+    'autofixture',
+    'endless_pagination',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -100,10 +103,17 @@ TEMPLATE_DIRS = (
     PROJECT_DIR.child('templates'),
 )
 
-LOGIN_URL = '/'
+LOGIN_URL = '/login'
 LOGIN_REDIRECT_URL = '/feeds/'
 
 ALLOWED_SIGNUP_DOMAINS = ['*']
 
 FILE_UPLOAD_TEMP_DIR = '/tmp/'
 FILE_UPLOAD_PERMISSIONS = 0644
+# one month
+SESSION_COOKIE_AGE = 3600*24*30
+
+
+TEMPLATE_CONTEXT_PROCESSORS += (
+    'django.core.context_processors.request',
+)

@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import HttpResponseForbidden, HttpResponseBadRequest, HttpResponse
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, render_to_response
 from django.shortcuts import render, redirect, get_object_or_404
 from django.template.loader import render_to_string
 
@@ -10,7 +10,23 @@ import markdown
 from aefat.articles.forms import ArticleForm
 from aefat.articles.models import Article, Tag, ArticleComment
 from aefat.decorators import ajax_required
+from django.template.context import RequestContext
+from endless_pagination.decorators import page_template
 
+@page_template('articles/articles_page.html')
+@login_required
+def articles(request, template='articles/articles.html', extra_context=None):
+    context = {
+        'articles': Article.objects.all(),
+        'popular_tags': Tag.get_popular_tags()
+        
+    }
+    
+    if extra_context is not None:
+        context.update(extra_context)
+    return render_to_response(
+        template, context, context_instance=RequestContext(request))
+    
 
 def _articles(request, articles):
     paginator = Paginator(articles, 10)
@@ -24,10 +40,10 @@ def _articles(request, articles):
     popular_tags = Tag.get_popular_tags()
     return render(request, 'articles/articles.html', {'articles': articles, 'popular_tags': popular_tags})
 
-@login_required
-def articles(request):
-    all_articles = Article.get_published()
-    return _articles(request, all_articles)
+# @login_required
+# def articles(request):
+#     all_articles = Article.get_published()
+#     return _articles(request, all_articles)
 
 @login_required
 def article(request, slug):
