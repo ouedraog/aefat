@@ -15,7 +15,10 @@
     </span>
   </div>
   <div class="content">
-    {{ article.get_content_as_markdown|safe }}
+    
+    {% autoescape off %}
+    {{article.get_content}}
+{% endautoescape %}
   </div>
   {% if article.get_tags %}
     <div class="tags">

@@ -20,18 +20,16 @@
 			<script type="text/javascript">
 			window.location.href = "#toregister";
 		</script>
+		<style type="text/css">
+			.errorlist{
+				color: red;
+			}
+		</style>
     </head>
     <body>
         <div class="container">
             <header>
                 <h1>AEFAT</span></h1>
-                	{% if form.non_field_errors %} {% for error in form.non_field_errors %}
-	<div class="alert alert-danger alert-dismissable">
-		<button type="button" class="close" data-dismiss="alert"
-			aria-hidden="true">&times;</button>
-		{{ error }}
-	</div>
-	{% endfor %} {% endif %}
             </header>
             <section>				
                 <div id="container_demo" >
@@ -47,18 +45,26 @@
                                     <label for="username" class="uname" data-icon="u">Nom d'utilisateur</label>
                                     <input id="usernamesignup" name="username" required="required" type="text" placeholder="mysuperusername690" />
                                 </p>
+                                {{form.errors.username}}
+                                <br>
                                 <p> 
                                     <label for="email" class="youmail" data-icon="e" > Email</label>
                                     <input id="emailsignup" name="email" required="required" type="email" placeholder="mysupermail@mail.com"/> 
                                 </p>
+                                {{form.errors.email}}
+                                <br>
                                 <p> 
                                     <label for="password" class="youpasswd" data-icon="p">Mot de passe </label>
                                     <input id="passwordsignup" name="password" required="required" type="password" placeholder="eg. X8df!90EO"/>
                                 </p>
+                                
                                 <p> 
                                     <label for="confirm_password" class="youpasswd" data-icon="p">Confirmer le mot de passe </label>
                                     <input id="passwordsignup_confirm" name="confirm_password" required="required" type="password" placeholder="eg. X8df!90EO"/>
                                 </p>
+                                {{form.errors.password}}
+                                <br>
+                                
                                 <p class="signin button"> 
 									<input type="submit" value="Inscription"/> 
 								</p>

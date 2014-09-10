@@ -1,3 +1,4 @@
+# coding: utf-8
 from django import forms
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
@@ -10,9 +11,9 @@ def SignupDomainValidator(value):
         try:
             domain = value[value.index("@"):]
             if domain not in ALLOWED_SIGNUP_DOMAINS:
-                raise ValidationError(u'Invalid domain. Allowed domains on this network: {0}'.format(','.join(ALLOWED_SIGNUP_DOMAINS)))
+                raise ValidationError(u'Domaine invalide. Domaines autorisés: {0}'.format(','.join(ALLOWED_SIGNUP_DOMAINS)))
         except Exception, e:
-            raise ValidationError(u'Invalid domain. Allowed domains on this network: {0}'.format(','.join(ALLOWED_SIGNUP_DOMAINS)))
+            raise ValidationError(u'Domaine invalide. Domaines autorisés: {0}'.format(','.join(ALLOWED_SIGNUP_DOMAINS)))
 
 def ForbiddenUsernamesValidator(value):
     forbidden_usernames = ['admin', 'settings', 'news', 'about', 'help', 'signin', 'signup',
@@ -23,30 +24,32 @@ def ForbiddenUsernamesValidator(value):
         'campaign', 'config', 'delete', 'remove', 'forum', 'forums', 'download', 'downloads',
         'contact', 'blogs', 'feed', 'feeds', 'faq', 'intranet', 'log', 'registration', 'search',
         'explore', 'rss', 'support', 'status', 'static', 'media', 'setting', 'css', 'js',
-        'follow', 'activity', 'questions', 'articles', 'network', ]
+        'follow', 'activity', 'questions', 'articles', 'network', 
+        'aefat',
+        ]
     if value.lower() in forbidden_usernames:
-        raise ValidationError('This is a reserved word.')
+        raise ValidationError("Ce mot ne peut pas être utilisé comme nom d'utilisateur")
 
 def InvalidUsernameValidator(value):
     if '@' in value or '+' in value or '-' in value:
-        raise ValidationError('Enter a valid username.')
+        raise ValidationError("Veuillez entrez un nom d'utilisateur valides.")
 
 def UniqueEmailValidator(value):
     if User.objects.filter(email__iexact=value).exists():
-        raise ValidationError('User with this Email already exists.')
+        raise ValidationError("Un utilisateur avec cet email existe déjà")
 
 def UniqueUsernameIgnoreCaseValidator(value):
     if User.objects.filter(username__iexact=value).exists():
-        raise ValidationError('User with this Username already exists.')
+        raise ValidationError("Ce nom d'utilisateur n'est pas disponible")
 
 class SignUpForm(forms.ModelForm):
     username = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}),
         max_length=30,
         required=True,
-        help_text='Usernames may contain <strong>alphanumeric</strong>, <strong>_</strong> and <strong>.</strong> characters')
+        help_text=u"Les noms d'utilisateurs peuvent contenir des <strong>caractères alphanumerics</strong>, et les caractères <strong>_</strong> et <strong>.</strong>")
     password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control'}))
     confirm_password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control'}),
-        label="Confirm your password",
+        label="Confirmez votre mot de passe",
         required=True)
     email = forms.CharField(widget=forms.EmailInput(attrs={'class':'form-control'}),
         required=True,
@@ -70,5 +73,5 @@ class SignUpForm(forms.ModelForm):
         password = self.cleaned_data.get('password')
         confirm_password = self.cleaned_data.get('confirm_password')
         if password and password != confirm_password:
-            self._errors['password'] = self.error_class(['Passwords don\'t match'])
+            self._errors['password'] = self.error_class(["Les mots de passes saisies ne sont pas identiques"])
         return self.cleaned_data

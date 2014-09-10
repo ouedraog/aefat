@@ -17,8 +17,7 @@ FEEDS_NUM_PAGES = 10
 
 @page_template('feeds/feeds_page.html')
 @login_required
-def feeds(
-        request, template='feeds/feeds.html', extra_context=None):
+def feeds(request, template='feeds/feeds.html', extra_context=None):
     context = {
         'feeds': Feed.objects.filter(parent=None),
     }

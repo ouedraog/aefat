@@ -29,4 +29,6 @@ urlpatterns = patterns('',
     url(r'^search/$', 'aefat.search.views.search', name='search'),
     url(r'^(?P<username>[^/]+)/$', 'aefat.core.views.profile', name='profile'),
     url(r'^i18n/', include('django.conf.urls.i18n', namespace='i18n')),
+    #ckeditor
+    (r'^ckeditor/', include('ckeditor.urls')),
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -44,18 +44,23 @@
                                     <label for="username" class="uname" data-icon="u">Nom d'utilisateur</label>
                                     <input id="usernamesignup" name="username" required="required" type="text" placeholder="mysuperusername690" />
                                 </p>
+                                <p style="color:red;">{{form.errors.username}}</p>
                                 <p> 
                                     <label for="email" class="youmail" data-icon="e" > Email</label>
                                     <input id="emailsignup" name="email" required="required" type="email" placeholder="mysupermail@mail.com"/> 
                                 </p>
+                                <p style="color:red;">{{form.errors.email}}</p>
                                 <p> 
                                     <label for="password" class="youpasswd" data-icon="p">Mot de passe </label>
                                     <input id="passwordsignup" name="password" required="required" type="password" placeholder="eg. X8df!90EO"/>
                                 </p>
+                                
                                 <p> 
                                     <label for="confirm_password" class="youpasswd" data-icon="p">Confirmer le mot de passe </label>
                                     <input id="passwordsignup_confirm" name="confirm_password" required="required" type="password" placeholder="eg. X8df!90EO"/>
                                 </p>
+                                <p style="color:red !important;">{{form.errors.password}}</p>
+                                
                                 <p class="signin button"> 
 									<input type="submit" value="Inscription"/> 
 								</p>

@@ -2,6 +2,7 @@
 {% load i18n %}
 
 {% block head %}
+	  <script src="/static/ckeditor/ckeditor/ckeditor.js"></script>
   <script src="{{ STATIC_URL }}js/articles.js"></script>
 {% endblock head %}
 
@@ -11,6 +12,7 @@
     <li><a href="{% url 'drafts' %}">{% trans 'Drafts' %}</a></li>
     <li class="active">{% trans 'Edit' %}</li>
   </ol>
+  
   <form action="{% url 'edit_article' form.instance.pk %}" method="post" role="form">
     {% csrf_token %}
     {{ form.status }}

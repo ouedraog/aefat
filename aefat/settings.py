@@ -50,6 +50,7 @@ INSTALLED_APPS = (
     'aefat.aefat_pages',
     'autofixture',
     'endless_pagination',
+    "ckeditor",
 )
 
 MIDDLEWARE_CLASSES = (
@@ -117,3 +118,16 @@ SESSION_COOKIE_AGE = 3600*24*30
 TEMPLATE_CONTEXT_PROCESSORS += (
     'django.core.context_processors.request',
 )
+
+#ckeditor
+CKEDITOR_UPLOAD_PATH = "ckeditor/"
+CKEDITOR_IMAGE_BACKEND = "pillow"
+CKEDITOR_RESTRICT_BY_USER = True
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Full',
+        'height': 400,
+        'width': 1000,
+    },
+}
+

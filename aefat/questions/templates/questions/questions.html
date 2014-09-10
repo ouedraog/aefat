@@ -22,11 +22,13 @@
       <li{% if active == 'answered' %} class="active"{% endif %}><a href="{% url 'answered' %}">{% trans "Answered" %}</a></li>
       <li{% if active == 'all' %} class="active"{% endif %}><a href="{% url 'all' %}">{% trans "All Questions" %}</a></li>
     </ul>
-    {% for question in questions %}
-      {% include 'questions/partial_question.html' with question=question %}
-    {% empty %}
-      <h4 class="no-data">{% trans "No question to display" %}</h4>
-    {% endfor %}
-    {% include 'paginator.html' with paginator=questions %}
+    {% include page_template %}
+
+		{% block js %}
+		    
+		    <script src="http://code.jquery.com/jquery-latest.js"></script>
+		    <script src="{{ STATIC_URL }}endless_pagination/js/endless-pagination.js"></script>
+		    <script>$.endlessPaginate({paginateOnScroll: true});</script>
+		{% endblock %}
   </div>
 {% endblock main %}

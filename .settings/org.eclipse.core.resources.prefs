@@ -1,8 +1,14 @@
 eclipse.preferences.version=1
 encoding//aefat/aefat_pages/templates/aefat_pages/home.html=UTF-8
 encoding//aefat/articles/templates/articles/articles_page.html=UTF-8
+encoding//aefat/articles/templates/articles/partial_article_comments.html=UTF-8
+encoding//aefat/articles/templates/articles/write.html=UTF-8
+encoding//aefat/auth/forms.py=utf-8
+encoding//aefat/auth/views.py=utf-8
+encoding//aefat/feeds/templates/feeds/feeds.html=UTF-8
 encoding//aefat/feeds/templates/feeds/partial_feed.html=UTF-8
 encoding//aefat/feeds/templates/feeds/partial_feed_comments.html=UTF-8
+encoding//aefat/questions/templates/questions/questions_page.html=UTF-8
 encoding//aefat/search/templates/search/partial_articles_results.html=UTF-8
 encoding//aefat/search/templates/search/partial_feed_results.html=UTF-8
 encoding//aefat/search/templates/search/partial_questions_results.html=UTF-8

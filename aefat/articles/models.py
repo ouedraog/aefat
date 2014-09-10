@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.template.defaultfilters import slugify
 from django.utils.translation import ugettext_lazy as _
+from ckeditor.fields import RichTextField
 
 import markdown
 
@@ -17,13 +18,17 @@ class Article(models.Model):
 
     title = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, null=True, blank=True)
-    content = models.TextField(max_length=4000)
+    #content = models.TextField(max_length=4000)
+    content = RichTextField()
     status = models.CharField(max_length=1, choices=STATUS, default=DRAFT)
     create_user = models.ForeignKey(User)
     create_date = models.DateTimeField(auto_now_add=True)
     update_date = models.DateTimeField(blank=True, null=True)
     update_user = models.ForeignKey(User, null=True, blank=True, related_name="+")
 
+    def get_content(self):
+        return self.content
+    
     class Meta:
         verbose_name = _("Article")
         verbose_name_plural = _("Articles")
@@ -33,6 +38,7 @@ class Article(models.Model):
         return self.title
 
     def save(self, *args, **kwargs):
+        print "saving.."
         if not self.pk:
             super(Article, self).save(*args, **kwargs)
         else:

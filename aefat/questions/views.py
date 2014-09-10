@@ -2,44 +2,87 @@ from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
 from django.http import HttpResponse, HttpResponseForbidden
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404,\
+    render_to_response
 
 from aefat.activities.models import Activity
 from aefat.decorators import ajax_required
 from aefat.questions.forms import QuestionForm, AnswerForm
 from aefat.questions.models import Question, Answer
+from endless_pagination.decorators import page_template
+from django.template.context import RequestContext
+
+# @login_required
+# def _questions(request, questions, active):
+#     paginator = Paginator(questions, 10)
+#     page = request.GET.get('page')
+#     try:
+#         questions = paginator.page(page)
+#     except PageNotAnInteger:
+#         questions = paginator.page(1)
+#     except EmptyPage:
+#         questions = paginator.page(paginator.num_pages)
+#     return render(request, 'questions/questions.html', {'questions': questions, 'active': active})
+
+@login_required
+def _questions(request, questions, active, template='questions/questions.html', extra_context=None):
+    context = {
+               'questions': questions, 
+               'active': active
+               }
+    if extra_context is not None:
+        context.update(extra_context)
+    return render_to_response(
+        template, context, context_instance=RequestContext(request))
 
 
 @login_required
-def _questions(request, questions, active):
-    paginator = Paginator(questions, 10)
-    page = request.GET.get('page')
-    try:
-        questions = paginator.page(page)
-    except PageNotAnInteger:
-        questions = paginator.page(1)
-    except EmptyPage:
-        questions = paginator.page(paginator.num_pages)
-    return render(request, 'questions/questions.html', {'questions': questions, 'active': active})
+@page_template('questions/questions_page.html')
+def questions(request, template='questions/questions.html', extra_context=None):
+    context = {
+               'questions': Question.get_unanswered(), 
+               'active': 'unanswered'
+               }
+    if extra_context is not None:
+        context.update(extra_context)
+    return render_to_response(
+        template, context, context_instance=RequestContext(request))
 
 @login_required
-def questions(request):
-    return unanswered(request)
+@page_template('questions/questions_page.html')
+def answered(request, template='questions/questions.html', extra_context=None):
+    context = {
+               'questions': Question.get_answered(), 
+               'active': 'answered'
+               }
+    if extra_context is not None:
+        context.update(extra_context)
+    return render_to_response(
+        template, context, context_instance=RequestContext(request))
 
 @login_required
-def answered(request):
-    questions = Question.get_answered()
-    return _questions(request, questions, 'answered')
+@page_template('questions/questions_page.html')
+def unanswered(request, template='questions/questions.html', extra_context=None):
+    context = {
+               'questions': Question.get_unanswered(), 
+               'active': 'unanswered'
+               }
+    if extra_context is not None:
+        context.update(extra_context)
+    return render_to_response(
+        template, context, context_instance=RequestContext(request))
 
 @login_required
-def unanswered(request):
-    questions = Question.get_unanswered()
-    return _questions(request, questions, 'unanswered')
-
-@login_required
-def all(request):
-    questions = Question.objects.all()
-    return _questions(request, questions, 'all')
+@page_template('questions/questions_page.html')
+def all(request, template='questions/questions.html', extra_context=None):
+    context = {
+               'questions': Question.objects.all(), 
+               'active': 'all'
+               }
+    if extra_context is not None:
+        context.update(extra_context)
+    return render_to_response(
+        template, context, context_instance=RequestContext(request))
 
 @login_required
 def ask(request):

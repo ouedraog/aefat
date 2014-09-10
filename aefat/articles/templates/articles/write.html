@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 {% load i18n %}
-
+{% load staticfiles %}
 {% block head %}
   <script src="{{ STATIC_URL }}js/articles.js"></script>
+  <script src="{{STATIC_URL}}ckeditor/ckeditor/ckeditor.js"></script>
 {% endblock head %}
 
 {% block main %}
@@ -16,9 +17,6 @@
     {% for field in form.visible_fields %}
       <div class="form-group{% if field.errors %} has-error{% endif %}">
         <label for="{{ field.label }}" class="control-label">{{ field.label }}</label>
-        {% if field.label == 'Content' %}
-          {% include 'markdown_editor.html' with textarea='id_content' %}
-        {% endif %}
         {{ field }}
         {% if field.help_text %}
           <span class="help-block">{{ field.help_text }}</span>
@@ -29,26 +27,10 @@
       </div>
     {% endfor %}
     <div class="form-group">
-      <button type="button" class="btn btn-primary publish">{% trans 'Publish' %}</button>
-      <button type="button" class="btn btn-default draft">{% trans 'Save Draft' %}</button>
-      <button type="button" class="btn btn-default preview" data-toggle="modal" data-target="#preview">{% trans 'Preview' %}</button>
-      <a href="{% url 'articles' %}" class="btn btn-default">{% trans 'Cancel' %}</a>
+      <button type="button" class="btn btn-primary publish">Publier</button>
+      <button type="button" class="btn btn-default draft">Enregistrer en tant que brouillon</button>
+      <a href="{% url 'articles' %}" class="btn btn-default">Annuler</a>
     </div>
   </form>
-
-  <div class="modal fade" id="preview">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title">Article Preview</h4>
-        </div>
-        <div class="modal-body"></div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
 {% endblock main %}
